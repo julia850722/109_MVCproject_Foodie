@@ -171,32 +171,18 @@
     <Compile Include="Controllers\GuestbooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-<<<<<<< Updated upstream:ch3-7/ch3-7/ch3-7.csproj
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202004141214159_InitialCreate.cs" />
     <Compile Include="Migrations\202004141214159_InitialCreate.Designer.cs">
       <DependentUpon>202004141214159_InitialCreate.cs</DependentUpon>
-=======
-    <Compile Include="Controllers\McdonaldsController.cs" />
-    <Compile Include="Controllers\PurchaseOffersController.cs" />
-    <Compile Include="Controllers\TryMCController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006010938020_InitialCreate.cs" />
-    <Compile Include="Migrations\202006010938020_InitialCreate.Designer.cs">
-      <DependentUpon>202006010938020_InitialCreate.cs</DependentUpon>
->>>>>>> Stashed changes:Foodie/Foodie/Foodie.csproj
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GuestbookModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PurchaseOfferModel.cs" />
-    <Compile Include="Models\RestaurantModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -256,21 +242,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-<<<<<<< Updated upstream:ch3-7/ch3-7/ch3-7.csproj
     <Content Include="Views\Guestbooks\Create.cshtml" />
     <Content Include="Views\Guestbooks\Delete.cshtml" />
     <Content Include="Views\Guestbooks\Details.cshtml" />
     <Content Include="Views\Guestbooks\Edit.cshtml" />
     <Content Include="Views\Guestbooks\Index.cshtml" />
-=======
-    <Content Include="Views\Mcdonalds\Mcdonalds.cshtml" />
-    <Content Include="Views\TryMC\TryMC.cshtml" />
-    <Content Include="Views\PurchaseOffers\Create.cshtml" />
-    <Content Include="Views\PurchaseOffers\Delete.cshtml" />
-    <Content Include="Views\PurchaseOffers\Details.cshtml" />
-    <Content Include="Views\PurchaseOffers\Edit.cshtml" />
-    <Content Include="Views\PurchaseOffers\Index.cshtml" />
->>>>>>> Stashed changes:Foodie/Foodie/Foodie.csproj
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -289,13 +265,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream:ch3-7/ch3-7/ch3-7.csproj
     <EmbeddedResource Include="Migrations\202004141214159_InitialCreate.resx">
       <DependentUpon>202004141214159_InitialCreate.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="Migrations\202006010938020_InitialCreate.resx">
-      <DependentUpon>202006010938020_InitialCreate.cs</DependentUpon>
->>>>>>> Stashed changes:Foodie/Foodie/Foodie.csproj
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

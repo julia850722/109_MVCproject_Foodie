@@ -30,10 +30,6 @@ namespace ch3_7.Models
             return new ApplicationDbContext();
         }
 
-<<<<<<< Updated upstream:ch3-7/ch3-7/Models/IdentityModels.cs
         public System.Data.Entity.DbSet<ch3_7.Models.GuestbookModels> GuestbookModels { get; set; }
-=======
-        public System.Data.Entity.DbSet<Foodie.Models.PurchaseOffer> PurchaseOffers { get; set; }
->>>>>>> Stashed changes:Foodie/Foodie/Models/IdentityModels.cs
     }
 }
