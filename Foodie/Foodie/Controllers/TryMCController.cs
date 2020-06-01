@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using AngleSharp.Dom;
 using AngleSharp.Html.Parser;
 
 namespace Foodie.Controllers
@@ -50,17 +51,16 @@ namespace Foodie.Controllers
 
             foreach (var c in contents)
             {
-                var str_innerHtml = c.TextContent;
+                var str_innerHtml = c.TextContent;//只取HTML文字部分
                 var price = str_innerHtml.Contains("$"); //回傳是True/False
-                var strSpace = "//\r\n//";
-
-                if (price)//是否包含價錢
+                
+                if (str_innerHtml.Contains("$"))//是否包含價錢
                 {
                     str += c.TextContent;
-                    str += strSpace;
-
                     price = false;
                 }
+                str += c.TextContent;
+
             }
             return str;
         }
