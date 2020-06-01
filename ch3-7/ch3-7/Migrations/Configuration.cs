@@ -1,19 +1,19 @@
-namespace ch3_7.Migrations
+namespace Foodie.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ch3_7.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Foodie.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "ch3_7.Models.ApplicationDbContext";
+            ContextKey = "Foodie.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(ch3_7.Models.ApplicationDbContext context)
+        protected override void Seed(Foodie.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
