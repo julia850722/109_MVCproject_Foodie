@@ -32,28 +32,24 @@ namespace Foodie.Controllers
                 return PartialView(db.PurchaseOffers.Where(p => p.Seller.Id == user.Id).ToList());
             }
         }
-
+        
         public ActionResult RequestIndex()
         {
-            var RestaurantList = from r in db.PurchaseOffers select r;
-            ViewBag.RestaurantLists = new SelectList(RestaurantList, "OfferedRestaurant", "OfferedRestaurant");
-            var Id = User.Identity.GetUserId();
-            if (Id == null)
-            {
-                return View(db.PurchaseOffers.OrderByDescending(p => p.Seller.Id).ToList());
-                //return View(db.PurchaseOffers.ToList());
-            }
-            else
-            {
-                var username = User.Identity.Name;
-                var user = db.Users.Where(p => p.UserName == username).FirstOrDefault();
-                return View(db.PurchaseOffers.Where(p => p.Seller.Id == user.Id).ToList());
-            }
+           
+            ViewBag.RList = new SelectList(db.PurchaseOffers, "OfferedRestaurant", "OfferedRestaurant");
+            return View();
         }
+
+        //[HttpPost]
+        //public ActionResult RequestIndex(FormCollection post)
+        //{
+        //    return View(db.PurchaseOffers.OrderBy(p => p.Seller.Id).ToList());
+        //}
 
         public ActionResult Info()
         {
-            return View(db.PurchaseOffers.OrderByDescending(p => p.Seller.Id).ToList());
+
+            return PartialView(db.PurchaseOffers.OrderByDescending(p => p.Seller.Id).ToList());
         }
         // GET: PurchaseOffers/Details/5
         public ActionResult Details(Guid? id)
