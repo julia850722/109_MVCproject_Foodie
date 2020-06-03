@@ -40,11 +40,11 @@ namespace Foodie.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult RequestIndex(FormCollection post)
-        //{
-        //    return View(db.PurchaseOffers.OrderBy(p => p.Seller.Id).ToList());
-        //}
+        [HttpPost]
+        public string RequestIndex(FormCollection fc,string searchString)
+        {
+            return "<h3> From [HttpPost]Index: " + searchString + "</h3>";
+       }
 
         public ActionResult Info()
         {
@@ -160,5 +160,12 @@ namespace Foodie.Controllers
             }
             base.Dispose(disposing);
         }
+    }
+
+   public class RequestSendBack
+    {
+        public string Restaurant { get; set; }
+
+        public IEnumerable<SelectListItem> Restaurants { get; set; }
     }
 }
