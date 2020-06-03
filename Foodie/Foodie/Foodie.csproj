@@ -180,22 +180,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\McdonaldsController.cs" />
-    <Compile Include="Controllers\PurchaseOffersController.cs" />
     <Compile Include="Controllers\TryMCController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006010938020_InitialCreate.cs" />
-    <Compile Include="Migrations\202006010938020_InitialCreate.Designer.cs">
-      <DependentUpon>202006010938020_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PuchaseRequestModel.cs" />
-    <Compile Include="Models\PurchaseOfferModel.cs" />
-    <Compile Include="Models\RestaurantModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -257,13 +248,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Mcdonalds\Mcdonalds.cshtml" />
     <Content Include="Views\TryMC\TryMC.cshtml" />
-    <Content Include="Views\PurchaseOffers\Create.cshtml" />
-    <Content Include="Views\PurchaseOffers\Delete.cshtml" />
-    <Content Include="Views\PurchaseOffers\Details.cshtml" />
-    <Content Include="Views\PurchaseOffers\Edit.cshtml" />
-    <Content Include="Views\PurchaseOffers\Index.cshtml" />
-    <Content Include="Views\PurchaseOffers\RequestIndex.cshtml" />
-    <Content Include="Views\PurchaseOffers\Info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -280,11 +264,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006010938020_InitialCreate.resx">
-      <DependentUpon>202006010938020_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
