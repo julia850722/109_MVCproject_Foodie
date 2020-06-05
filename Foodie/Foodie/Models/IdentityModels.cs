@@ -29,5 +29,9 @@ namespace Foodie.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Foodie.Models.PurchaseOffer> PurchaseOffers { get; set; }
+
+        public System.Data.Entity.DbSet<Foodie.Models.PuchaseRequest> PuchaseRequests { get; set; }
     }
 }
