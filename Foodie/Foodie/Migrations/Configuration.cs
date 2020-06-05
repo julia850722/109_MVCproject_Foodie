@@ -10,7 +10,6 @@ namespace Foodie.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "Foodie.Models.ApplicationDbContext";
         }
 
         protected override void Seed(Foodie.Models.ApplicationDbContext context)
