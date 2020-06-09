@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
@@ -26,6 +26,8 @@
                     <li>@Html.ActionLink("關於", "About", "Home")</li>
                     <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
                     <li>@Html.ActionLink("麥當勞菜單", "AllMeal", "Mcdonalds")</li>
+                    <li>@Html.ActionLink("代買offer", "Create", "PurchaseOffers")</li>
+                    <li>@Html.ActionLink("要求代買", "RequestIndex", "PurchaseOffers")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
