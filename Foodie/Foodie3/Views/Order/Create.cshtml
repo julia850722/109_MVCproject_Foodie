@@ -1,0 +1,104 @@
+﻿@model Foodie3.Models.OrderModels
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<h2>填寫餐點訂單</h2>
+
+@using (Ajax.BeginForm(new AjaxOptions() { Confirm = "確定提交訂單", UpdateTargetId = "AjaxDiv" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <p style="color:Tomato;">* 餐點、數量為必填欄位</p>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Meal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Meal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Meal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ABC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" id="selector">
+                @*@Html.EditorFor(model => model.ABC, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*@Html.DropDownList("selector", (IEnumerable<SelectListItem>)ViewBag.SelectList, new { @style = "background-color:yellow" })*@
+                @Html.ValidationMessageFor(model => model.ABC, "", new { @class = "text-danger" })
+
+                @using (Ajax.BeginForm("Items", "Home", new AjaxOptions { UpdateTargetId = "view1" }))
+                {
+                    <select name="item" onchange="$(this.form).submit();">
+                        <option value="">預設</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                    </select>
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Number, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tips, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tips, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tips, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Created, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Created, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Created, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndFlag, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.EndFlag)
+                    @Html.ValidationMessageFor(model => model.EndFlag, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="確定" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div id="AjaxDiv">
+    @*@Html.ActionLink("Back to List", "Index")*@
+    @Html.Action("Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
