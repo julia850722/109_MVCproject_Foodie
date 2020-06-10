@@ -57,7 +57,7 @@ namespace Foodie.Controllers
             ArrayList td = new ArrayList();
 
             //需disable掉的table編號
-            int[] disable_table = new int[] { 1, 2, 3, 4, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 20, 27, 26, 25, 35, 30, 41, 42, 43, 44, 45, 46, 47, 48};
+            int[] disable_table = new int[] { 0, 1, 2, 3, 4, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 27, 26, 25, 35, 30, 31, 32, 34, 39, 41, 42, 43, 44, 45, 46, 47, 48 };
 
             var parser = new HtmlParser();
             var document = await parser.ParseDocumentAsync(html);
@@ -85,7 +85,7 @@ namespace Foodie.Controllers
                     temp_tr += temp_td;//一整行(不含分行符號) => 比對用
                     temp_td = "";
                     str = "<tr>" + str + "</tr>";//加橫線*2 //一整行(含分行符號)
-                    v_cnt_tr ++;//往下一行前進
+                    v_cnt_tr++;//往下一行前進
 
                     if (v_cnt_tr > 0)
                     {
@@ -95,6 +95,27 @@ namespace Foodie.Controllers
                             {
                                 if (v_cnt_table == disable_table[j])
                                 {
+                                    if (v_cnt_table == 13)
+                                    {
+                                        strHtml = strHtml + " <h3> 快樂分享餐 </h3> " + "<br>";
+                                    }
+                                    else if (v_cnt_table == 20)
+                                    {
+                                        strHtml = strHtml + " <h3> 早餐餐點 </h3> " + "<br>";
+                                    }
+                                    else if (v_cnt_table == 27)
+                                    {
+                                        strHtml = strHtml + " <h3> McCafé </h3> " + "<br>";
+                                    }
+                                    else if (v_cnt_table == 35)
+                                    {
+                                        strHtml = strHtml + " <h3> 點心品項 </h3> " + "<br>";
+                                    }
+                                    else if (v_cnt_table == 39)
+                                    {
+                                        strHtml = strHtml + " <h3> 飲料 </h3> " + "<br>";
+                                    }
+
                                     flag = false;
                                     break;
                                 }
@@ -104,6 +125,35 @@ namespace Foodie.Controllers
                             {
                                 str = "<table style=\"font-size:20px; font-family: Lucida Console; background-color: #FFE8BF; border: 5px #FF6363;\" cellpadding=\"10\" border=\"1\" >" + str + "</table>";
                                 strHtml += str + "\n" + "<br>" + "<br>" + "<br>" + "\n";
+
+                                if (v_cnt_table == 5)//加標題
+                                {
+                                    strHtml = " <h3> 超值全餐 </h3> " + "<br>" + strHtml;
+                                }
+                                //else if (v_cnt_table == 13)
+                                //{
+                                //    strHtml = strHtml + " <h3> 快樂分享餐 </h3> " + "<br>";
+                                //}
+                                //else if (v_cnt_table == 20)
+                                //{
+                                //    strHtml = strHtml + " <h3> 早餐餐點 </h3> " + "<br>";
+                                //}
+                                //else if (v_cnt_table == 27)
+                                //{
+                                //    strHtml = strHtml + " <h3> McCafé </h3> " + "<br>";
+                                //}
+                                //else if (v_cnt_table == 35)
+                                //{
+                                //    strHtml = strHtml + " <h3> 點心品項 </h3> " + "<br>";
+                                //}
+                                else if (v_cnt_table == 37)
+                                {
+                                    strHtml = strHtml + " <h3> 冰品 </h3> " + "<br>";
+                                }
+                                //else if (v_cnt_table == 39)
+                                //{
+                                //    strHtml = strHtml + " <h3> 飲料 </h3> " + "<br>";
+                                //}
                                 str = "";
                                 temp_td = "";
                                 temp_tr = "";
@@ -120,7 +170,6 @@ namespace Foodie.Controllers
                     }
                 }
             }
-
             return strHtml;
         }
     }

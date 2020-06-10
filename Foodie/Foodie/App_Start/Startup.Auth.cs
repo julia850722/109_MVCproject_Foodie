@@ -54,9 +54,9 @@ namespace Foodie
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "626462598226068",
-               appSecret: "68a6e13e41c3dd5709cf11738482e235");
+            //app.UseFacebookAuthentication(
+            //   appId: "",
+            //   appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

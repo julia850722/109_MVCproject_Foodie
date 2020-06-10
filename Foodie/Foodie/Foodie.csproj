@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{806AD33D-9A3B-4B05-9A75-CF51D6D4EEE7}</ProjectGuid>
+    <ProjectGuid>{88FEF81B-1421-4985-9C60-025BE858C93B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -18,7 +18,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44312</IISExpressSSLPort>
+    <IISExpressSSLPort>44361</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -48,12 +48,6 @@
     <Reference Include="AngleSharp, Version=0.14.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
       <HintPath>..\packages\AngleSharp.0.14.0\lib\net472\AngleSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,7 +55,6 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="System.Security" />
     <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
@@ -185,154 +178,47 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KFCController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\McdonaldsController.cs" />
-    <Compile Include="Controllers\PuchaseRequestsController.cs" />
-    <Compile Include="Controllers\PurchaseOffersController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006090554342_InitialCreate.cs" />
+    <Compile Include="Migrations\202006090554342_InitialCreate.Designer.cs">
+      <DependentUpon>202006090554342_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PuchaseRequestModel.cs" />
-    <Compile Include="Models\PurchaseOfferModel.cs" />
+    <Compile Include="Models\MenuModels.cs" />
+    <Compile Include="Models\OrderModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\assets\css\style.css" />
-    <Content Include="Content\assets\img\about-img.jpg" />
-    <Content Include="Content\assets\img\apple-touch-icon.png" />
-    <Content Include="Content\assets\img\clients\client-1.png" />
-    <Content Include="Content\assets\img\clients\client-2.png" />
-    <Content Include="Content\assets\img\clients\client-3.png" />
-    <Content Include="Content\assets\img\clients\client-4.png" />
-    <Content Include="Content\assets\img\clients\client-5.png" />
-    <Content Include="Content\assets\img\clients\client-6.png" />
-    <Content Include="Content\assets\img\clients\client-7.png" />
-    <Content Include="Content\assets\img\clients\client-8.png" />
-    <Content Include="Content\assets\img\favicon.png" />
-    <Content Include="Content\assets\img\features-1.svg" />
-    <Content Include="Content\assets\img\features-2.svg" />
-    <Content Include="Content\assets\img\intro-bg.jpg" />
-    <Content Include="Content\assets\img\intro-img.svg" />
-    <Content Include="Content\assets\img\portfolio\app1.jpg" />
-    <Content Include="Content\assets\img\portfolio\app2.jpg" />
-    <Content Include="Content\assets\img\portfolio\app3.jpg" />
-    <Content Include="Content\assets\img\portfolio\card1.jpg" />
-    <Content Include="Content\assets\img\portfolio\card2.jpg" />
-    <Content Include="Content\assets\img\portfolio\card3.jpg" />
-    <Content Include="Content\assets\img\portfolio\portfolio-details-1.jpg" />
-    <Content Include="Content\assets\img\portfolio\portfolio-details-2.jpg" />
-    <Content Include="Content\assets\img\portfolio\portfolio-details-3.jpg" />
-    <Content Include="Content\assets\img\portfolio\web1.jpg" />
-    <Content Include="Content\assets\img\portfolio\web2.jpg" />
-    <Content Include="Content\assets\img\portfolio\web3.jpg" />
-    <Content Include="Content\assets\img\team-1.jpg" />
-    <Content Include="Content\assets\img\team-2.jpg" />
-    <Content Include="Content\assets\img\team-3.jpg" />
-    <Content Include="Content\assets\img\team-4.jpg" />
-    <Content Include="Content\assets\img\testimonial-1.jpg" />
-    <Content Include="Content\assets\img\testimonial-2.jpg" />
-    <Content Include="Content\assets\img\testimonial-3.jpg" />
-    <Content Include="Content\assets\img\testimonial-4.jpg" />
-    <Content Include="Content\assets\img\why-us.jpg" />
-    <Content Include="Content\assets\js\main.js" />
-    <Content Include="Content\assets\vendor\animate.css\animate.css" />
-    <Content Include="Content\assets\vendor\animate.css\animate.min.css" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.css" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.css" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.css" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
-    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
-    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.js" />
-    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Content\assets\vendor\counterup\counterup.min.js" />
-    <Content Include="Content\assets\vendor\font-awesome\css\font-awesome.css" />
-    <Content Include="Content\assets\vendor\font-awesome\css\font-awesome.min.css" />
-    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\assets\vendor\ionicons\css\ionicons.css" />
-    <Content Include="Content\assets\vendor\ionicons\css\ionicons.min.css" />
-    <Content Include="Content\assets\vendor\ionicons\fonts\ionicons.svg" />
-    <Content Include="Content\assets\vendor\isotope-layout\isotope.pkgd.js" />
-    <Content Include="Content\assets\vendor\isotope-layout\isotope.pkgd.min.js" />
-    <Content Include="Content\assets\vendor\jquery.easing\jquery.easing.min.js" />
-    <Content Include="Content\assets\vendor\jquery\jquery.min.js" />
-    <Content Include="Content\assets\vendor\mobile-nav\mobile-nav.js" />
-    <Content Include="Content\assets\vendor\owl.carousel\assets\ajax-loader.gif" />
-    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.carousel.css" />
-    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.carousel.min.css" />
-    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.theme.default.css" />
-    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.theme.default.min.css" />
-    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.theme.green.css" />
-    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.theme.green.min.css" />
-    <Content Include="Content\assets\vendor\owl.carousel\assets\owl.video.play.png" />
-    <Content Include="Content\assets\vendor\owl.carousel\owl.carousel.js" />
-    <Content Include="Content\assets\vendor\owl.carousel\owl.carousel.min.js" />
-    <Content Include="Content\assets\vendor\php-email-form\validate.js" />
-    <Content Include="Content\assets\vendor\venobox\venobox.css" />
-    <Content Include="Content\assets\vendor\venobox\venobox.js" />
-    <Content Include="Content\assets\vendor\venobox\venobox.min.css" />
-    <Content Include="Content\assets\vendor\venobox\venobox.min.js" />
-    <Content Include="Content\assets\vendor\waypoints\jquery.waypoints.min.js" />
-    <Content Include="Content\assets\vendor\wow\wow.js" />
-    <Content Include="Content\assets\vendor\wow\wow.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\McLogo.png" />
-    <Content Include="Content\Images\KFClogo.png" />
-    <Content Include="Content\Images\McBurger.jpg" />
-    <Content Include="Content\sublime\animate.css" />
-    <Content Include="Content\sublime\font-awesome.min.css" />
-    <Content Include="Content\sublime\main_styles.css" />
-    <Content Include="Content\sublime\owl.carousel.css" />
-    <Content Include="Content\sublime\owl.theme.default.css" />
-    <Content Include="Content\sublime\responsive.css" />
+    <Content Include="Content\Images\EatMore2.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\assets\img\header-bg.psd" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.css.map" />
-    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
-    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.js.map" />
-    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
-    <Content Include="Content\assets\vendor\font-awesome\css\font-awesome.css.map" />
-    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\assets\vendor\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Content\assets\vendor\ionicons\fonts\ionicons.eot" />
-    <Content Include="Content\assets\vendor\ionicons\fonts\ionicons.ttf" />
-    <Content Include="Content\assets\vendor\ionicons\fonts\ionicons.woff" />
-    <Content Include="Content\assets\vendor\jquery\jquery.min.map" />
-    <Content Include="Content\assets\vendor\owl.carousel\LICENSE" />
-    <Content Include="Content\assets\vendor\owl.carousel\README.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
-    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -373,22 +259,17 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Mcdonalds\AllMeal.cshtml" />
-    <Content Include="Views\PuchaseRequests\Create.cshtml" />
-    <Content Include="Views\PuchaseRequests\Delete.cshtml" />
-    <Content Include="Views\PuchaseRequests\Details.cshtml" />
-    <Content Include="Views\PuchaseRequests\Edit.cshtml" />
-    <Content Include="Views\PuchaseRequests\Index.cshtml" />
-    <Content Include="Views\PurchaseOffers\Create.cshtml" />
-    <Content Include="Views\PurchaseOffers\Delete.cshtml" />
-    <Content Include="Views\PurchaseOffers\Details.cshtml" />
-    <Content Include="Views\PurchaseOffers\Edit.cshtml" />
-    <Content Include="Views\PurchaseOffers\Index.cshtml" />
-    <Content Include="Views\PuchaseRequests\CreateInfo.cshtml" />
-    <Content Include="Views\PuchaseRequests\SellerInfo.cshtml" />
-    <Content Include="Views\PurchaseOffers\.cshtml" />
-    <Content Include="Views\PurchaseOffers\Info.cshtml" />
-    <Content Include="Views\PurchaseOffers\RequestIndex.cshtml" />
-    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\KFC\KFCAllMeal.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Menu\Create.cshtml" />
+    <Content Include="Views\Menu\Delete.cshtml" />
+    <Content Include="Views\Menu\Details.cshtml" />
+    <Content Include="Views\Menu\Edit.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -406,6 +287,11 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202006090554342_InitialCreate.resx">
+      <DependentUpon>202006090554342_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -422,9 +308,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52663</DevelopmentServerPort>
+          <DevelopmentServerPort>51735</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44312/</IISUrl>
+          <IISUrl>https://localhost:44361/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
