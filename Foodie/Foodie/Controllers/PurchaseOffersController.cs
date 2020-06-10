@@ -152,7 +152,12 @@ namespace Foodie.Controllers
         public ActionResult DeleteConfirmed(Guid id)
         {
             PurchaseOffer purchaseOffer = db.PurchaseOffers.Find(id);
+            List<PuchaseRequest> puchaseRequests = db.PuchaseRequests.Where(x => x.PurchaseOffersId == id).ToList();
             db.PurchaseOffers.Remove(purchaseOffer);
+            foreach(var i in puchaseRequests)
+            {
+                db.PuchaseRequests.Remove(i);
+            }
             db.SaveChanges();
             return RedirectToAction("Create");
         }
